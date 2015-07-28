@@ -74,7 +74,9 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-
+		//TODO: Start the database here (I think this is the right place) in a separate thread.
+		//Database needs to be read from and written to by many activities including this one...
+		//How can I share it between activities?
 		
 		/*if(file.exists()) 
 		try {
@@ -186,11 +188,12 @@ public class MainActivity extends Activity {
 	        	brand_name2 = "name," + getDigitEyesName("Lookup Results : ", 3) + ",calories," + getAtrribute2("Calories ", ' ') + ",fat," + getAtrribute2("Total Fat ", 'g');
 	        	web_output2.setText(brand_name2);
 	        	foodEntryDialog();
-	        	writeToFile(brand_name2);
+	        	writeToFile(brand_name2); //TODO: Replace with call to method which writes a new record to the database or updates the record if it already exists
 	        }
 	    });		
 	}	
-	
+	//TODO: Replace the 4 'getter' methods below with a JSON parser method 
+	//to easily get all attributes by name
 	public String getDigitEyesName(String key, int stopper)
 	{
 		String b = "";
@@ -276,7 +279,8 @@ public class MainActivity extends Activity {
 	
 	
 
-
+	//TODO: Replace with Zxing code (bundle the code with this app 
+	//rather than relying on a separate app being installed)
 	static final String ACTION_SCAN = "com.google.zxing.client.android.SCAN";
 	ProgressDialog mProgressDialog;
 	String Url = "http://api.v3.factual.com/t/products-cpg-nutrition?filters={%22upc%22:%22071439000060%22}&KEY=0piVpfxqJcqfJZACLLaDC8x3eAxhwYyxY95B4b7F";
@@ -354,7 +358,6 @@ public class MainActivity extends Activity {
 		        } 
 		        catch (IOException e) 
 		        { 
-		        	System.out.println("fuck");
 		        	e.printStackTrace();                        
 		        }
 		        
@@ -367,7 +370,6 @@ public class MainActivity extends Activity {
 		        } 
 		        catch (IOException e) 
 		        { 
-		        	System.out.println("fuck");
 		        	e.printStackTrace();                        
 		        }		        
 		        
@@ -383,11 +385,7 @@ public class MainActivity extends Activity {
 	        
 	    }                                                      
 	};
-	
-
-
-
-    
+	 
 	//on ActivityResult method
 	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
 	
@@ -411,7 +409,8 @@ public class MainActivity extends Activity {
 	}
 	
 	
-	
+	//TODO: Replace this method and all references to it with a method 
+	//that writes a new record to the database or updates the record if it already exists.
 	public void writeToFile(String input) {
 		
 		//TextView debugger = (TextView) findViewById(R.id.file_output_view);
@@ -481,8 +480,6 @@ public class MainActivity extends Activity {
 				}
 			}	
 			
-			
-
 		try 
 		{
 		  outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
