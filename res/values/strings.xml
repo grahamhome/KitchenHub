@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FoodTrackerApp</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_blue_tooth">BlueToothActivity</string>
+    <string name="title_activity_graph">GraphActivity</string>
+    <string name="str_btn_chart">Recent Food Activity</string>
+    <string name="title_activity_file">FileActivity</string>
+    <string name="title_activity_weight">WeightActivity</string>
+
+</resources>
